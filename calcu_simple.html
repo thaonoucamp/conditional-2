@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td
+        {
+            border: 1px solid black;
+        }
+        button
+        {
+            width: 100%;
+        }
+        table
+        {
+            ;
+            border: 1px solid black;
+            width: 30%;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <table align="center">
+        <tr>
+            <td colspan="4">
+                <p id="demo2"></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <p id="demo1" align="right"></p>
+            </td>
+        <tr>
+            <td><button id="num7">7</button></td>
+            <td><button id="num8">8</button></td>
+            <td><button id="num9">9</button></td>
+            <td><button id="div">/</button></td>
+        </tr>
+        <tr>
+            <td><button id="num4">4</button></td>
+            <td><button id="num5">5</button></td>
+            <td><button id="num6">6</button></td>
+            <td><button id="multi">*</button></td>
+        </tr>
+        <tr>
+            <td><button id="num3">3</button></td>
+            <td><button id="num2">2</button></td>
+            <td><button id="num1">1</button></td>
+            <td><button id="sub">-</button></td>
+        </tr>
+        <tr>
+            <td><button id="reset">Ac</button></td>
+            <td><button id="num0">0</button></td>
+            <td><button id="equal">=</button></td>
+            <td><button id="add">+</button></td>
+        </tr>
+        <script>
+            let str = " ";
+            // lap i tu 0 den 9 neu button i click add i to string va flagstring
+            for(let i = 0; i<10;i++)
+                document.getElementById('num' + i).addeventListener('click',function(){
+                    document.getElementById('demo1').innerHTML +=i;
+                    str +=i;
+                });
+// button + click
+            document.getElementById("add").addEventListener("click",function () {
+                // kiem tra neu ki tu flagstring th length-1 la so thu i += dau
+                let a = document.getElementById('demo1.')innerHTML;
+                if(str.charAt(str.length-1) != "+" && str.charAt(str.length-1) != "-"
+                    && str.charAt(str.length-1) != "/" && str.charAt(str.length-1) != "*")
+                {
+                    a += "+";
+                    document.getElementById('demo1').innerHTML = a;
+                    // console.log(a);
+                    // add 0 vao dau neu an dau dau tien
+                    if(a.charAt(0) == "+")
+                    {
+                        a = "0" + a;
+                        document.getElementById('demo1').innerHTML = a;
+                        str = "(" + "0" + str +") +";
+                        {
+                           // if(str.charAt(str.length-1) != "+")
+                            // {
+                            // str = "(" + str + ")+";
+                            //}
+                            str = "(" + str + ") +"
+                        }
+                    }
+                } else {
+                    let b = a.substring(0, a.length-1);
+                    a = b + "+";
+                    document.getElementById("demo1").innerHTML = a;
+                    str = "(" + str + ")";
+                    console.log("str: " + str);
+                }
+            });
+            document.getElementById("sub").addEventListener("click", function () {
+                let a = document.getElementById('demo1').innerHTML;
+                if(str.charAt(str.length-1)) != "+" && str.charAt(str.length-1) != "-" && str.charAt(str.length-1) != "*" && str.charAt(str.length-1) != "/")
+            {
+                a += "-";
+                document.getElementById('demo1').innerHTML = a;
+                str = "(" + "0" + str + ") -";
+            }
+            else
+            {
+                // if (str.charAt(str.length-1) != "-")
+                // {
+                 //    str = "(" + str + ")-";
+                // }
+                 str = "(" + str + ")-"
+            }
+            }
+            else
+            {
+                let b = a.substring(0,a.length-1);
+                a = a b + "-";
+                document.getElementById("demo1").innerHTML = a;
+            }
+            });
+document.getElementById("mul").addEventListener("click", function()
+)
+
+        </script>
+</form>
+</body>
+</html>
